@@ -34,9 +34,9 @@ function listLibrary(){
         li.classList.add('book-card')
         li.innerHTML = `
         <h2>${book.name}</h2>
-        <p>Author: ${book.author}</p>
-        <p>Pages: ${book.pages}</p>
-        <p>${book.isRead ? "I Have read this book" : " Not read this book yet"}</p>
+        <p><span>Author:</span> ${book.author}</p>
+        <p><span>Pages:</span> ${book.numberOfPages}
+        ${book.isRead ? "I Have read this book" : " Not read this book yet"}</p>
         `
         bookList.appendChild(li)
     })
@@ -70,5 +70,20 @@ const newBook = ()=>{
 newBookButton.addEventListener("click", newBook)
 
 addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+addBookToLibrary('Harry Potter and the philosopher stone', "JK Rolling", 300, true)
+
+
 listLibrary()
 
