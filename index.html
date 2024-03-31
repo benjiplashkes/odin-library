@@ -1,13 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./scripts,.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./scripts.js" defer></script>
     <title>Library Exercise</title>
-</head>
-<body>
+  </head>
+  <body>
+    <h1 class="site-title">My Library</h1>
+    <p class="subtitle">This is a library project for my books</p>
+    <hr />
+    <div class="book-list-wrapper">
+      <ul class="book-list" id="book-list"></ul>
 
-</body>
+    </div>
+
+    <div class="new-book-wrapper">
+        <button class="button" id="newBook">New Book</button>
+        <form id="book-form" class="hidden" aria-hidden="true" action="">
+            <p class="submit-info">* indicates required aria-required="true" fields</p>
+            <div class="input-wrapper">
+                <label for="book-name">Book name: *</label>
+                <input type="text" name="book-name"  id="book-name" class="book-input" required aria-required="true">
+            </div>
+            <div class="input-wrapper">
+                <label for="book-author">Book author: *</label>
+                <input type="text" name="book-author"  id="book-author" class="book-input" required aria-required="true">
+            </div>
+            <div class="input-wrapper">
+                <label for="book-pages">Book pages: *</label>
+                <input type="number" name="book-pages"  id="book-pages" class="book-input" required aria-required="true">
+            </div>
+            <div class="input-wrapper">
+                <label for="book-read">Have read ?</label>
+                <input type="checkbox" name="book-read"  id="book-read" class="book-input" >
+            </div>
+            <button type="submit" class="button" id="addNewBook">Add New Book</button>
+            
+        </form>
+      </div>
+  </body>
 </html>
