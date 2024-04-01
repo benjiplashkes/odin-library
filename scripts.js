@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 const modalButton = document.querySelector("#openModal");
 const addNewBookButton = document.querySelector("#addNewBook");
 const bookList = document.querySelector("#book-list");
@@ -16,9 +16,6 @@ function Book(name, author, pages, isRead = false) {
       isRead ? "Have read this book" : "not read yet"
     }`;
   };
-  const renderHTML = () => {
-    return;
-  };
 }
 
 function addBookToLibrary(name, author, pages, isRead = false) {
@@ -27,17 +24,52 @@ function addBookToLibrary(name, author, pages, isRead = false) {
 }
 
 function listLibrary() {
-  myLibrary.reverse().forEach((book) => {
-    console.log(book);
+  clearScreen();
+  myLibrary.forEach((book, index) => {
     const li = document.createElement("li");
     li.classList.add("book-card");
+    li.dataset.bookId = index;
     li.innerHTML = `
         <h2>${book.name}</h2>
         <p><span>Author:</span> ${book.author}</p>
         <p><span>Pages:</span> ${book.numberOfPages}
-        ${book.isRead ? "I Have read this book" : " Not read this book yet"}</p>
+        
+        
         `;
+        // <p><label for="isRead">Read it ?<label></p>
+        // <input type="checkbox" name="isRead" id="isRead-${index} class="isRead" ${book.isRead ? "checked": ""}>
+    const removeButton = document.createElement("button");
+    removeButton.classList.add("button");
+    removeButton.classList.add("remove-button");
+    removeButton.dataset.bookId = index;
+    removeButton.textContent = "Remove Book";
+    const checkboxDiv = document.createElement('div')
+    checkboxDiv.classList.add('input-wrapper')
+    checkboxDiv.classList.add('input-checkbox-wrapper')
+
+    const label = document.createElement('label')
+    label.setAttribute('for', `read-checkbox-${index}`)
+    label.textContent = "Book Read ?"
+    const checkbox = document.createElement('input')
+    checkbox.setAttribute("type", "checkbox")
+    checkbox.setAttribute("id", `read-checkbox-${index}`)
+    checkbox.dataset.bookId = index
+
+    if(book.isRead) checkbox.setAttribute('checked', true)
+    checkbox.classList.add('isRead')
+    checkbox.classList.add('checkbox')
+    checkbox.addEventListener("change", (e)=>{
+      const bookId = e.target.dataset.bookId
+      e.target.checked ? myLibrary[bookId].isRead = true : myLibrary[bookId].isRead = false
+    })
+    checkboxDiv.appendChild(label)
+    checkboxDiv.appendChild(checkbox)
+    li.appendChild(checkboxDiv)
+    li.appendChild(removeButton);
     bookList.appendChild(li);
+    console.log(li)
+   
+    
   });
 }
 
@@ -84,6 +116,13 @@ const openModalButton = (e) => {
 };
 
 modalButton.addEventListener("click", openModalButton);
+
+function removeBook (e) {
+    const bookId = e.target.dataset.bookId;
+    console.log({ bookId });
+    myLibrary.splice(bookId, 1);
+    return listLibrary();
+  };
 
 addBookToLibrary(
   "Harry Potter and the philosopher stone",
