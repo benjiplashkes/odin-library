@@ -6,6 +6,8 @@
   --col-accent: #478978ff;
   --col-text: #1c2826ff;
   --col-valid: #91fb9b;
+  --col-valid-dark: var(--col-accent);
+
   --col-invalid: #fa7b6a;
   --col-shadow: hsla(165, 32%, 41%, 0.2);
 
@@ -137,16 +139,16 @@ body {
   background-color: var(--col-bg);
   color: var(--col-text);
   padding: 2rem;
-  
+
   border-radius: 1rem;
   list-style: none;
   box-shadow: 0px 0.5rem 1rem var(--col-shadow);
+
   border: 1px solid var(--col-shadow);
 }
 .book-card h2 {
   font-size: 1.8rem;
   grid-column: 1/5;
-  
 }
 .book-card p {
   grid-column: 1/5;
@@ -213,11 +215,8 @@ dialog::backdrop {
 }
 .input-checkbox-wrapper {
   display: flex;
-  
-  
 }
 .input-checkbox-wrapper label {
-  
   font-size: 1.4rem;
   font-style: italic;
   margin-right: auto;
@@ -245,4 +244,9 @@ input:valid {
   visibility: hidden;
   opacity: 0;
   display: none;
+}
+.IsRead,
+li[data-is-read="true"] {
+  outline: 2px solid var(--col-valid-dark);
+  color: var(--col-valid-dark);
 }
