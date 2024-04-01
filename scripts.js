@@ -1,8 +1,7 @@
 const myLibrary = [];
-const newBookButton = document.querySelector("#newBook");
+const modalButton = document.querySelector("#openModal");
 const addNewBookButton = document.querySelector("#addNewBook");
 const bookList = document.querySelector("#book-list");
-
 const dialog = document.querySelector("dialog.book-form");
 const closeModalButton = document.querySelector("#closeModal");
 
@@ -24,13 +23,11 @@ function Book(name, author, pages, isRead = false) {
 
 function addBookToLibrary(name, author, pages, isRead = false) {
   const book = new Book(name, author, pages, isRead);
-  console.log(book);
   myLibrary.push(book);
-  return book;
 }
 
 function listLibrary() {
-  myLibrary.forEach((book) => {
+  myLibrary.reverse().forEach((book) => {
     console.log(book);
     const li = document.createElement("li");
     li.classList.add("book-card");
@@ -43,40 +40,50 @@ function listLibrary() {
     bookList.appendChild(li);
   });
 }
+
 function clearScreen() {
   bookList.textContent = "";
 }
 const addNewBook = (e) => {
+  const inputs = document.querySelectorAll(".input-wrapper input");
+  const nameInput = document.querySelector("#book-name");
+  const authorInput = document.querySelector("#book-author");
+  const pagesInput = document.querySelector("#book-pages");
+  const isReadInput = document.querySelector("#book-read");
+
   e.preventDefault();
-  const nameInput = document.querySelector("#book-name").value;
-  const authorInput = document.querySelector("#book-author").value;
-  const pagesInput = document.querySelector("#book-pages").value;
-  const isReadInput = document.querySelector("#book-read").value;
-  addBookToLibrary(nameInput, authorInput, pagesInput, isReadInput);
+
+  if (
+    !nameInput.validity.valid &&
+    !authorInput.validity.valid &&
+    !pagesInput.validity.valid
+  ) {
+    dialog.showModal();
+    nameInput.focus();
+    return;
+  }
+
+  addBookToLibrary(
+    nameInput.value,
+    authorInput.value,
+    pagesInput.value,
+    isReadInput.value
+  );
   clearScreen();
   dialog.close();
   listLibrary();
+  inputs.forEach((input) => (input.value = ""));
 };
 addNewBookButton.addEventListener("click", addNewBook);
 closeModalButton.addEventListener("click", (e) => {
   dialog.close();
 });
-const dialogOpen = (e)=>{
-    console.log(e.currentTarget)
-    if(e.currentTarget !== dialog){
-        dialog.close()
-        document.body.removeEventListener("click", dialogOpen)
-    }
-}
-const newBook = (e) => {
-  console.log(e);
+
+const openModalButton = (e) => {
   dialog.showModal();
-  setTimeout(() => {
-    document.body.addEventListener("click", dialogOpen)
-  }, 100);
 };
 
-newBookButton.addEventListener("click", newBook);
+modalButton.addEventListener("click", openModalButton);
 
 addBookToLibrary(
   "Harry Potter and the philosopher stone",
@@ -84,83 +91,16 @@ addBookToLibrary(
   300,
   true
 );
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
-addBookToLibrary(
-  "Harry Potter and the philosopher stone",
-  "JK Rolling",
-  300,
-  true
-);
+
+addBookToLibrary("Whispers in the Mist", "Evelyn Harper", 432);
+addBookToLibrary("The Enigma of Echo Falls", "Samuel Rivers", 589);
+addBookToLibrary("Midnight Serenade", "Isabella Stone", 312);
+addBookToLibrary("The Forgotten Labyrinth", "Lucas Blackwood", 726);
+addBookToLibrary("Crimson Skies", "Aria Montgomery", 478);
+addBookToLibrary("The Quantum Paradox", "Oliver Grayson", 645);
+addBookToLibrary("Echoes of Eternity", "Sophia Lawson", 521);
+addBookToLibrary("Sapphire Dreams", "Natalie Bennett", 389);
+addBookToLibrary("The Celestial Cipher", "Elijah Reed", 572);
+addBookToLibrary("Whirlwind Chronicles", "Grace Mitchell", 703);
 
 listLibrary();
