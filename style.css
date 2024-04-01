@@ -5,6 +5,8 @@
 --col-bg: #edf5fcff;
 --col-accent: #478978ff;
 --col-text: #1c2826ff;
+--col-valid: #91fb9b;
+--col-invalid: #fa7b6a;
 --col-shadow: hsla(165, 32%, 41%, 0.2);
 
 
@@ -202,7 +204,12 @@ dialog::backdrop{
     height: 2em;
     outline: 2px solid var(--col-accent);
 }
-
+input:invalid{
+    border: 1px solid var(--col-invalid);
+}
+input:valid{
+    border: 1px solid var(--col-valid);
+}
 .book-form button{
     margin-top: var(--padding);
 }
