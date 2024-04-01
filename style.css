@@ -1,226 +1,248 @@
-:root{
-    /* CSS HEX */
---col-secondary: #0B3954;
---col-bg2: #b8c5d6ff;
---col-bg: #edf5fcff;
---col-accent: #478978ff;
---col-text: #1c2826ff;
---col-valid: #91fb9b;
---col-invalid: #fa7b6a;
---col-shadow: hsla(165, 32%, 41%, 0.2);
+:root {
+  /* CSS HEX */
+  --col-secondary: #0b3954;
+  --col-bg2: #b8c5d6ff;
+  --col-bg: #edf5fcff;
+  --col-accent: #478978ff;
+  --col-text: #1c2826ff;
+  --col-valid: #91fb9b;
+  --col-invalid: #fa7b6a;
+  --col-shadow: hsla(165, 32%, 41%, 0.2);
 
-
---box-shadow: 0px 0.5rem 1rem 0 var(--col-shadow);
-/* Gradient */
---gradient: linear-gradient(0deg, #a39ba8ff, #b8c5d6ff, #edf5fcff, #478978ff, #1c2826ff);
---padding: calc(1rem + 1vw)
-
+  --box-shadow: 0px 0.5rem 1rem 0 var(--col-shadow);
+  /* Gradient */
+  --gradient: linear-gradient(
+    0deg,
+    #a39ba8ff,
+    #b8c5d6ff,
+    #edf5fcff,
+    #478978ff,
+    #1c2826ff
+  );
+  --padding: calc(1rem + 1vw);
 }
-*, *::after, *::before{
-    box-sizing: border-box;
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
 }
- * + * {
-    margin: 0;
- }
-.scrollbar{
-    --col-secondary: #b8c5d6dd;
-    --col-accent:#478978dd;
-    --x:1.5rem;
-    --y:var(--x);
+* + * {
+  margin: 0;
 }
-.scrollbar::-webkit-scrollbar{
-
-    background-color: var(--col-accent);
-    width: 1.7rem;
-    border-radius: 0.5rem;
-    height: calc(100% + 1rem);
-    opacity: 0.9;
-    padding: 0.125rem;
- }
- .scrollbar::-webkit-scrollbar-thumb{
-    background-color: var(--col-secondary);
-    border: 4px solid var(--col-accent) ;
-    border-radius: 1rem;
-    width: 1rem;
- }
- .scrollbar::-webkit-scrollbar-button{
-
-    background-color: var(--col-secondary);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: var(--x);
-    height:var(--y);
-
- }
- .scrollbar::-webkit-scrollbar-button:hover, 
- .scrollbar::-webkit-scrollbar-thumb:hover{
-    background: rgba(0, 0, 0, 0.2)
- }
-
-
- ::-webkit-scrollbar-button:single-button:decrement {
-    background-image: url(./up-arrow-triangle-in-square-outlined-button-svgrepo-com.svg);
-
-
-  }
-  ::-webkit-scrollbar-button:single-button:increment {
-    background-image: url(./down-arrow-triangle-in-square-outlined-button-svgrepo-com.svg);
-  }
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 3rem;
-    margin: 0 auto;
-    background-color: var(--color-bg);
-    color: var(--col-text);
-    max-width: 1440px;
-    max-height: 100vh;
-    display: grid;
-    grid-template-rows: 100px 1fr 150px;
-    align-items: space-between;
-    justify-content: stretch;
-    overflow: auto;
-
+.scrollbar {
+  --col-secondary: #b8c5d6dd;
+  --col-accent: #478978dd;
+  --x: 1.5rem;
+  --y: var(--x);
 }
-.hero{
-    background-color: var(--col-bg2);
-    padding: var(--padding);
-    border-radius: 1rem;
-    display: grid;
-    place-content: center;
-    color: var(--col-secondary);
-    font-size: 1.2rem;
-    box-shadow: var(--box-shadow);
-    position: sticky;
-    border: 1px solid var(--col-accent);
-    border-bottom: 0.25rem solid var(--col-accent);
-
-    
+.scrollbar::-webkit-scrollbar {
+  background-color: var(--col-accent);
+  width: 1.7rem;
+  border-radius: 0.5rem;
+  height: calc(100% + 1rem);
+  opacity: 0.9;
+  padding: 0.125rem;
 }
-.hero > h1{
-    font-size: 1.5em;
-    text-align: center;
-    font-weight: 900;
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--col-secondary);
+  border: 4px solid var(--col-accent);
+  border-radius: 1rem;
+  width: 1rem;
+}
+.scrollbar::-webkit-scrollbar-button {
+  background-color: var(--col-secondary);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: var(--x);
+  height: var(--y);
+}
+.scrollbar::-webkit-scrollbar-button:hover,
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.2);
 }
 
-.book-list-wrapper , .new-book-wrapper{
-    box-shadow: var(--box-shadow);
-    margin: 1rem 0;
-    border-radius: 1rem;
-    background-color: var(--col-bg2);
-    border-bottom: 0.25rem solid var(--col-accent);
-    padding: calc(var(--padding) * 0.5) var(--padding) ;
+::-webkit-scrollbar-button:single-button:decrement {
+  background-image: url(./up-arrow-triangle-in-square-outlined-button-svgrepo-com.svg);
 }
-.book-list-wrapper{
-    overflow-y: auto;
-    box-shadow: -4px 0.5rem 1rem 0rem var(--col-shadow) inset;
-    }
-.new-book-wrapper{
-    align-self: flex-end;
-    display: grid;
-    place-items: center;
-    padding: 1rem;
-    margin-top: auto;
-    /* margin-bottom: 0.01dvh; */
-
+::-webkit-scrollbar-button:single-button:increment {
+  background-image: url(./down-arrow-triangle-in-square-outlined-button-svgrepo-com.svg);
 }
 
-.book-list{
-    padding: 1rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-auto-rows: minmax(250px, 1fr);
-    gap: 1rem;
-
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 3rem;
+  margin: 0 auto;
+  background-color: var(--color-bg);
+  color: var(--col-text);
+  max-width: 1440px;
+  max-height: 100vh;
+  display: grid;
+  grid-template-rows: 100px 1fr 150px;
+  align-items: space-between;
+  justify-content: stretch;
+  overflow: auto;
 }
-.book-card{
-    --col-shadow: hsla(170, 18%, 13%, 0.5);
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    background-color: var(--col-bg);
-    color: var(--col-text);
-    padding: calc(var(--padding) / 2);
-    border-radius: 1rem;
-    list-style: none;
-    box-shadow: 0px 0.5rem 1rem var(--col-shadow);
-    border: 1px solid var(--col-shadow);
+.hero {
+  background-color: var(--col-bg2);
+  padding: var(--padding);
+  border-radius: 1rem;
+  display: grid;
+  place-content: center;
+  color: var(--col-secondary);
+  font-size: 1.2rem;
+  box-shadow: var(--box-shadow);
+  position: sticky;
+  border: 1px solid var(--col-accent);
+  border-bottom: 0.25rem solid var(--col-accent);
+}
+.hero > h1 {
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: 900;
+}
+
+.book-list-wrapper,
+.new-book-wrapper {
+  box-shadow: var(--box-shadow);
+  margin: 1rem 0;
+  border-radius: 1rem;
+  background-color: var(--col-bg2);
+  border-bottom: 0.25rem solid var(--col-accent);
+  padding: calc(var(--padding) * 0.5) var(--padding);
+}
+.book-list-wrapper {
+  overflow-y: auto;
+  box-shadow: -4px 0.5rem 1rem 0rem var(--col-shadow) inset;
+}
+.new-book-wrapper {
+  align-self: flex-end;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  margin-top: auto;
+  /* margin-bottom: 0.01dvh; */
+}
+
+.book-list {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: minmax(250px, 1fr);
+  gap: 1rem;
+}
+.book-card {
+  --col-shadow: hsla(170, 18%, 13%, 0.5);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background-color: var(--col-bg);
+  color: var(--col-text);
+  padding: 2rem;
+  
+  border-radius: 1rem;
+  list-style: none;
+  box-shadow: 0px 0.5rem 1rem var(--col-shadow);
+  border: 1px solid var(--col-shadow);
+}
+.book-card h2 {
+  font-size: 1.8rem;
+  grid-column: 1/5;
+  
+}
+.book-card p {
+  grid-column: 1/5;
+}
+.book-card div {
+  grid-column: 1/5;
+}
+.book-card button {
+  grid-column: 3/5;
+  justify-self: end;
 }
 .book-card span {
-    font-weight: 600;
+  font-weight: 600;
 }
-.book-card p:last-child{
-    margin-top: 1rem;
+.book-card p:last-child {
+  margin-top: 1rem;
 }
-.button{
-    --col-shadow: hsla(170, 18%, 13%, 0.5);
-    appearance: none;
-    padding: calc(var(--padding) / 4) calc(var(--padding) /2);
-    font-size:1.2rem;
-    border-radius: 1rem;
-    background-color: var(--col-accent);
-    color: var(--col-bg);
-    border: 2px solid var(--col-text);
-    box-shadow: 0px 0.25rem 0.5rem var(--col-shadow);
-
+.button {
+  --col-shadow: hsla(170, 18%, 13%, 0.5);
+  appearance: none;
+  padding: calc(var(--padding) / 4) calc(var(--padding) / 2);
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  background-color: var(--col-accent);
+  color: var(--col-bg);
+  border: 2px solid var(--col-text);
+  box-shadow: 0px 0.25rem 0.5rem var(--col-shadow);
 }
-.remove-button{
-    margin-top: auto;
-}
-
-.book-form{
-    margin: var(--padding) 0;
-    font-size: 1.2rem;
-    padding: var(--padding);
-    border: 1px solid var(--col-text);
-    border-radius: var(--padding);
-    box-shadow: var(--box-shadow);
-}
-dialog:-internal-dialog-in-top-layer{
-    margin: auto;
+.remove-button {
+  margin-top: auto;
 }
 
-dialog::backdrop{
-    background-color: black;
-    opacity: 0.75;
+.book-form {
+  margin: var(--padding) 0;
+  font-size: 1.2rem;
+  padding: var(--padding);
+  border: 1px solid var(--col-text);
+  border-radius: var(--padding);
+  box-shadow: var(--box-shadow);
 }
-.input-wrapper{    
-    margin: 1rem 0;
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 1rem;
+dialog:-internal-dialog-in-top-layer {
+  margin: auto;
+}
+
+dialog::backdrop {
+  background-color: black;
+  opacity: 0.75;
+}
+.input-wrapper {
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1rem;
 }
 .input-wrapper label {
-    font-size: 1.5rem;
-
+  font-size: 1.5rem;
 }
-.input-wrapper input{
-    border-radius: 1rem;
-    padding: 0.5rem 1rem;
-    justify-content: start;
-    font-size: 1.2rem;
-    font-weight: 500;
+.input-wrapper input {
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  justify-content: start;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
-.input-wrapper [type="checkbox"]{
-    justify-self: start;
-    accent-color: var(--col-accent);
-    display: inline-block;
-    line-height: 2em;
-    width: 2em;
-    height: 2em;
-    outline: 2px solid var(--col-accent);
+.input-checkbox-wrapper {
+  display: flex;
+  
+  
 }
-input:invalid{
-    border: 1px solid var(--col-invalid);
+.input-checkbox-wrapper label {
+  
+  font-size: 1.4rem;
+  font-style: italic;
+  margin-right: auto;
 }
-input:valid{
-    border: 1px solid var(--col-valid);
+.input-wrapper [type="checkbox"] {
+  accent-color: var(--col-accent);
+  text-align: end;
+  margin-left: auto;
+  line-height: 2em;
+  width: 1.2rem;
+  height: 1.2rem;
+  outline: 2px solid var(--col-accent);
+  justify-self: flex-end;
 }
-.book-form button{
-    margin-top: var(--padding);
+input:invalid {
+  border: 1px solid var(--col-invalid);
 }
-.hidden{
-    visibility: hidden;
-    opacity: 0;
-    display: none;
+input:valid {
+  border: 1px solid var(--col-valid);
+}
+.book-form button {
+  margin-top: var(--padding);
+}
+.hidden {
+  visibility: hidden;
+  opacity: 0;
+  display: none;
 }
