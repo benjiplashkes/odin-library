@@ -29,7 +29,7 @@
 .scrollbar::-webkit-scrollbar{
 
     background-color: var(--col-accent);
-    width: 1.5rem;
+    width: 1.7rem;
     border-radius: 0.5rem;
     height: calc(100% + 1rem);
     opacity: 0.9;
@@ -110,7 +110,7 @@ body{
     padding: calc(var(--padding) * 0.5) var(--padding) ;
 }
 .book-list-wrapper{
-    overflow-y: scroll;
+    overflow-y: auto;
     box-shadow: -4px 0.5rem 1rem 0rem var(--col-shadow) inset;
     }
 .new-book-wrapper{
